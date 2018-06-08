@@ -1,7 +1,7 @@
 # gl-starter
 barebones webgl app
 
-![app image](/assets/gl-start.png)
+![app image](/assets/gl-starter.png)
 
 ## things to check out
 - https://thebookofshaders.com/
