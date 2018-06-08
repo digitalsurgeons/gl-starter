@@ -12,7 +12,8 @@ function view (state, emit) {
       <main class="pa3 cf center">
         <section class="fl mw6 w-50-m w-third-l pa3">
           <h2>webgl starter</h2>
-          <input type="range" oninput=${handleSlider}>
+          <p>color</p>
+          <input type="range" oninput=${handleSlider} min="0" max="1" step="0.01">
           ${state.canvas}
         </section>
       </main>
@@ -21,6 +22,6 @@ function view (state, emit) {
 
   function handleSlider (e) {
     var num = e.target.value
-    emit('slider', num)
+    emit('color', num)
   }
 }

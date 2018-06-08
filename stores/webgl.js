@@ -37,28 +37,34 @@ function store (state, emitter) {
       },
 
       uniforms: {
-        color: [1, 0, 0, 1]
+        color: state.regl.prop('color')
       },
 
       elements: bunny.cells
     })
 
     state.regl.frame(function (props) {
+      state.regl.clear({
+        color: [0, 0, 0, 0],
+        depth: 1
+      })
+
       state.camera(function () {
-        state.draw()
+        state.draw({
+          color: [
+            Math.cos(props.time * state.slideColor || 0.1),
+            Math.sin(props.time * 0.8),
+            Math.cos(props.time * 0.3),
+            1
+          ]
+        })
       })
     })
 
     emitter.emit('render')
 
-    // emitter.on('slider', function (num) {
-    //   state.count = num
-    //   state.regl.clear({
-    //     color: [0, 0, 0, 1],
-    //     depth: 1
-    //   })
-    //   state.colors = [1, 0, 1, 1]
-    //   state.draw()
-    // })
+    emitter.on('color', function (slide) {
+      state.slideColor = slide
+    })
   })
 }
