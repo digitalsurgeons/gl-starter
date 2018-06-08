@@ -1,6 +1,12 @@
 # gl-starter
 barebones webgl app
 
+![app image](/assets/gl-start.png)
+
+## things to check out
+- https://thebookofshaders.com/
+- https://github.com/regl-project/regl
+
 ## Commands
 Command                | Description                                      |
 -----------------------|--------------------------------------------------|
